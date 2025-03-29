@@ -1,14 +1,11 @@
+import { Provider } from 'react-redux';
+import store from './store/store';
+import Chat from './components/Chat';
 
-function App() {
-
+export default function App() {
   return (
-    <>
-      <div className="App text-3xl font-bold text-red-300 underline">
-        <h1>Welcome to React</h1>
-
-       </div>
-    </>
-  )
+    <Provider store={store}>
+      <Chat />
+    </Provider>
+  );
 }
-
-export default App
