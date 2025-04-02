@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
-import { UserAuth } from '../context/authContext';
 import { Link, useNavigate } from 'react-router';
 import { FcGoogle } from 'react-icons/fc';
+import { UserAuth } from '../contexts/authContext';
 
 const Login = () => {
   const navigate = useNavigate();

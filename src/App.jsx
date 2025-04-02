@@ -6,7 +6,7 @@ import { ProtectedRoute } from './Route/ProtectedRoute';
 import Home from './pages/Home';
 import NotFound from './pages/NotFound';
 import Login from './components/Login';
-import { AuthProvider } from './context/authContext';
+import { AuthProvider } from './contexts/authContext';
 
 export default function App() {
   return (
