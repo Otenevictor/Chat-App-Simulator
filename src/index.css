@@ -1,6 +1,62 @@
-@tailwind base;
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
+@import "tailwindcss";
+@plugin "daisyui";
+
+.containerWrap{
+  @apply container mx-auto max-w-4xl
+}
+
+
+/* Custom toast styling to match your app's design */
+.Toastify__toast {
+  border-radius: 8px;
+  padding: 16px;
+  color: #333;
+}
+
+.Toastify__toast--info {
+  background: #ebf5ff;
+  border-left: 4px solid #3b82f6;
+}
+
+.Toastify__toast--success {
+  background: #ecfdf5;
+  border-left: 4px solid #10b981;
+}
+
+.Toastify__toast--error {
+  background: #fef2f2;
+  border-left: 4px solid #ef4444;
+}
+
+.Toastify__toast--warning {
+  background: #fffbeb;
+  border-left: 4px solid #f59e0b;
+}
+
+.Toastify__toast-body {
+  font-family: inherit;
+}
+
+/* Style for buttons inside toasts */
+.Toastify__toast button:not(.Toastify__close-button) {
+  transition: all 0.2s;
+}
+
+.Toastify__toast button:not(.Toastify__close-button):hover {
+  opacity: 0.8;
+}
+
+/* Tailwind-like styling for toast buttons */
+.Toastify__toast button.bg-red-500:hover {
+  background-color: #ef4444;
+}
+
+.Toastify__toast button.bg-gray-500:hover {
+  background-color: #6b7280;
+}
 
 .typing-indicator {
   display: flex;
