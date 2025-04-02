@@ -1,10 +1,14 @@
 import { useState, useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { sendMessage, setTypingStatus } from '../store/chatSlice';
+import { UserAuth } from '../context/Authcontext';
+import { FaPaperPlane } from "react-icons/fa";
+
 
 export default function MessageInput({ roomId }) {
   const [message, setMessage] = useState('');
   const dispatch = useDispatch();
+  const { currentUser } = UserAuth();
   const typingTimeoutRef = useRef(null);
 
   const handleTyping = () => {
@@ -43,7 +47,15 @@ export default function MessageInput({ roomId }) {
     // Simulate network delay
     await new Promise(resolve => setTimeout(resolve, 500));
     
-    dispatch(sendMessage({ roomId, message: message.trim() }));
+    // Include user information with the message
+    const enrichedMessage = {
+      roomId, 
+      message: message.trim(),
+      userId: currentUser?.uid || null,
+      displayName: currentUser?.displayName || "Guest User"
+    };
+    
+    dispatch(sendMessage(enrichedMessage));
     setMessage('');
   };
 
@@ -58,16 +70,16 @@ export default function MessageInput({ roomId }) {
             handleTyping();
           }}
           placeholder="Type a message..."
-          className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500"
+          className="flex-1 px-4 py-2 border border-gray-300 text-black rounded-lg focus:outline-none focus:border-blue-500"
         />
         <button
           type="submit"
           disabled={!message.trim()}
-          className="px-6 py-2 bg-blue-500 text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-blue-600 transition-colors"
+          className="px-3 py-2 bg-white text-black rounded-lg disabled:opacity-50 disabled:cursor-not-allowed hover:bg-blue-600 transition-colors"
         >
-          Send
+        <FaPaperPlane className="text-xl" />
         </button>
       </div>
     </form>
   );
-} 
+}
