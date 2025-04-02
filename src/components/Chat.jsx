@@ -4,7 +4,6 @@ import { switchRoom, associateMessagesWithUser, clearRoomHistory } from '../stor
 import MessageList from './MessageList';
 import MessageInput from './MessageInput';
 import RoomList from './RoomList';
-import { UserAuth } from '../context/Authcontext';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -17,6 +16,7 @@ import {
   FiTrash2
 } from "react-icons/fi";
 import { HiChatBubbleOvalLeft } from "react-icons/hi2";
+import { UserAuth } from '../context/authContext';
 
 export default function Chat() {
   const dispatch = useDispatch();
