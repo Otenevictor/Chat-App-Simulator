@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { deleteMessage, editMessage } from '../store/chatSlice';
 import { format } from 'date-fns';
-import { UserAuth } from '../context/authcontext';
+import { UserAuth } from '../context/authContext';
 
 export default function MessageList({ roomId }) {
   const dispatch = useDispatch();

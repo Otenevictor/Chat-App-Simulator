@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import { sendMessage, setTypingStatus } from '../store/chatSlice';
 import { FaPaperPlane } from "react-icons/fa";
-import { UserAuth } from '../context/authcontext';
+import { UserAuth } from '../context/authContext';
 
 
 export default function MessageInput({ roomId }) {
