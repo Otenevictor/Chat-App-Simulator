@@ -120,6 +120,7 @@ export default function Chat() {
     <div className="flex h-screen bg-gray-100 relative overflow-hidden">
       <ToastContainer position="top-right" autoClose={3000} />
       
+      {/* Add Room Popup */}
       {showAddRoomPopup && (
         <div className="fixed inset-0 bg-gray-200 bg-opacity-50 flex items-center justify-center z-50">
           <div className="bg-white p-6 rounded-lg max-w-md w-full mx-4">
@@ -151,7 +152,8 @@ export default function Chat() {
         </div>
       )}
 
-      <div className={`fixed top-0 left-0 h-full bg-gray-800 text-white transition-all duration-300 flex flex-col z-20 ${sidebarExpanded ? 'w-64' : 'w-16'}`}>
+      {/* Left Sidebar */}
+      <div className={`fixed top-0 left-0 h-full bg-gray-800 text-white transition-all duration-300 flex flex-col z-30 ${sidebarExpanded ? 'w-64' : 'w-16'}`}>
         <button 
           onClick={() => setSidebarExpanded(!sidebarExpanded)}
           className="absolute -right-3 top-8 bg-white border border-gray-300 rounded-full p-2 text-gray-800 shadow-md"
@@ -188,64 +190,76 @@ export default function Chat() {
         </div>
       </div>
 
-      <div className="flex flex-1 h-full w-full">
-        <div 
-          className={`h-full bg-white border-r border-gray-200 transition-all duration-300 ${
-            showRoomList || !isMobile ? 'w-40' : 'w-0'
-          } ${isMobile && !showRoomList ? 'hidden' : 'block'} ml-16`}
-        >
-          <div className="h-full flex flex-col p-4 overflow-hidden">
-            <div className="flex justify-between items-center mb-4 flex-shrink-0">
-              <h2 className="text-xl font-bold text-blue-500">Chat Rooms</h2>
-              <button 
-                onClick={handleAddRoom}
-                className="p-1 rounded-full hover:bg-gray-100 text-blue-500"
-              >
-                <FiPlus size={20} />
-              </button>
-            </div>
-            <div className="flex-1 overflow-y-auto scrollbar-thin">
-              <RoomList
-                rooms={rooms}
-                currentRoom={currentRoom}
-                onRoomSelect={(room) => {
-                  dispatch(switchRoom(room));
-                  if (isMobile) setShowRoomList(false);
-                }}
-              />
-            </div>
-          </div>
-        </div>
-
-        <div className="flex-1 flex flex-col h-full text-blue-500 overflow-hidden">
-          <div className="bg-white p-4 border-b border-gray-200 flex items-center justify-between flex-shrink-0">
-            <div className="flex items-center">
-              {isMobile && (
-                <button 
-                  onClick={() => setShowRoomList(!showRoomList)} 
-                  className="mr-4 p-2 rounded-full hover:bg-gray-100"
-                >
-                  <HiChatBubbleOvalLeft size={20} className="text-blue-500" />
-                </button>
-              )}
-              <h1 className="text-xl font-bold">#{currentRoom}</h1>
-            </div>
+     {/* Room List Sidebar/Overlay */}
+{isMobile && showRoomList && (
+  <div 
+    className="fixed inset-0 bg-black/50 z-40" 
+    onClick={() => setShowRoomList(false)}
+  />
+)}
+<div className={`h-full bg-white border-r border-gray-200 transition-transform duration-300 ${
+  isMobile ? 'fixed inset-y-0 left-0 w-64  z-50 transform' : 'static w-64 ml-16 translate-x-0'
+} ${isMobile ? (showRoomList ? 'translate-x-0' : '-translate-x-full') : ''}`}> 
+        <div className="h-full flex flex-col p-4 overflow-hidden">
+          <div className="flex justify-between items-center mb-4">
+            <h2 className="text-xl font-bold text-blue-500">Chat Rooms</h2>
             <button 
-              onClick={handleClearHistory}
-              className="p-2 rounded-full hover:bg-gray-100 text-red-500 flex items-center gap-1"
-              title="Clear chat history"
+              onClick={() => setShowRoomList(false)}
+              className="p-1 text-gray-500 hover:text-gray-700"
             >
-              <FiTrash2 size={18} />
-              {!isMobile && <span className="text-sm">Clear History</span>}
+              {/* <FiChevronLeft size={24} /> */}
             </button>
           </div>
-          <div className="flex-1 flex flex-col overflow-hidden">
-            <div className="flex-1 overflow-y-auto">
-              <MessageList roomId={currentRoom} />
-            </div>
-            <div className="flex-shrink-0 bg-white border-t border-gray-200">
-              <MessageInput roomId={currentRoom} />
-            </div>
+          <div className="flex-1 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
+            <RoomList
+              rooms={rooms}
+              currentRoom={currentRoom}
+              onRoomSelect={(room) => {
+                dispatch(switchRoom(room));
+                setShowRoomList(false);
+              }}
+            />
+          </div>
+          <button
+            onClick={handleAddRoom}
+            className="mt-4 p-2 w-full bg-blue-500 text-white rounded-lg hover:bg-blue-600 flex items-center justify-center"
+          >
+            <FiPlus size={20} className="mr-2" />
+            Add Room
+          </button>
+        </div>
+      </div>
+
+      {/* Main Chat Area */}
+      <div className="flex-1 flex flex-col h-full text-blue-500 overflow-hidden ml-16">
+        <div className="bg-white p-4 border-b border-gray-200 flex items-center justify-between">
+          <div className="flex items-center">
+            {isMobile && (
+              <button 
+                onClick={() => setShowRoomList(true)} 
+                className="mr-4 p-2 rounded-full hover:bg-gray-100"
+              >
+                <HiChatBubbleOvalLeft size={24} className="text-blue-500" />
+              </button>
+            )}
+            <h1 className="text-xl font-bold">#{currentRoom}</h1>
+          </div>
+          <button 
+            onClick={handleClearHistory}
+            className="p-2 rounded-full hover:bg-gray-100 text-red-500 flex items-center gap-1"
+            title="Clear chat history"
+          >
+            <FiTrash2 size={18} />
+            {!isMobile && <span className="text-sm">Clear History</span>}
+          </button>
+        </div>
+
+        <div className="flex-1 flex flex-col overflow-hidden">
+          <div className="flex-1 overflow-y-auto scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
+            <MessageList roomId={currentRoom} />
+          </div>
+          <div className="flex-shrink-0 bg-white border-t border-gray-200 p-4">
+            <MessageInput roomId={currentRoom} />
           </div>
         </div>
       </div>
