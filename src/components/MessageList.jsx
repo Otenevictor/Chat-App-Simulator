@@ -44,8 +44,8 @@ export default function MessageList({ roomId }) {
           <div
             className={`max-w-[70%] px-4 py-2 relative rounded-xl ${
               message.userId === currentUser?.uid
-                ? 'bg-blue-500 text-white rounded-br-xl'
-                : 'bg-gray-200 text-gray-800 rounded-bl-xl'
+                ? 'bg-gray-300 text-black rounded-br-xl'
+                : 'bg-blue-500 text-white rounded-bl-xl'
             }`}
           >
             {/* Display Name */}
