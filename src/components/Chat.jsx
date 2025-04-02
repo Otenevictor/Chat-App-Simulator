@@ -16,7 +16,7 @@ import {
   FiTrash2
 } from "react-icons/fi";
 import { HiChatBubbleOvalLeft } from "react-icons/hi2";
-import { UserAuth } from '../context/authContext';
+import { UserAuth } from '../context/authcontext';
 
 export default function Chat() {
   const dispatch = useDispatch();

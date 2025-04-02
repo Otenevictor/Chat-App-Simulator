@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { UserAuth } from '../context/authContext';
+import { UserAuth } from '../context/authcontext';
 import { Link, useNavigate } from 'react-router';
 import { FcGoogle } from 'react-icons/fc';
 
