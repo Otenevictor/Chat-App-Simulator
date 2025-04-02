@@ -7,16 +7,16 @@ const Home = () => {
   return (
     <>
       <NavBar />
-      <div className='pt-20 text-gray-800'>
+      <div className='pt-20 text-gray-800 '>
         {/* Hero Section */}
-        <div className='hero bg-gradient-to-r from-blue-500 to-indigo-600 text-white min-h-screen flex items-center justify-center'>
-          <div className='hero-content flex-col lg:flex-row-reverse text-center lg:text-left'>
+        <div className='hero bg-gradient-to-r  from-blue-500 to-indigo-600 text-white min-h-screen px-10 flex items-center justify-center'>
+          <div className='hero-content px-10 flex-col lg:flex-row-reverse text-center lg:text-left'>
             <img
               src='https://res.cloudinary.com/de5sm2jjl/image/upload/v1743588883/7563799_b5fyfl.jpg'
               className='max-w-sm rounded-lg shadow-2xl' />
             <div>
-              <h1 className='text-5xl font-extrabold'>Seamless Chat Experience</h1>
-              <p className='py-6 text-lg'>
+              <h1 className='text-2xl md:text-5xl px-10 font-extrabold'>Seamless Chat Experience</h1>
+              <p className='py-6 text-1xl md:text-2xl px-10'>
                 Engage in real-time conversations with auto-scrolling, typing indicators, multiple chat rooms, and a customizable user interface. Experience fluid messaging with message editing, clear chat options, and chat history storage.
               </p>
               <Link to='/login' className='px-6 py-3 bg-white text-blue-600 font-semibold rounded-lg shadow-md hover:bg-blue-100 transition-all duration-300'>Start Chatting</Link>
@@ -29,27 +29,27 @@ const Home = () => {
           <h2 className='text-3xl font-bold text-center text-white'>Key Features</h2>
           <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8'>
             <div className='p-6 bg-white shadow-md rounded-xl'>
-              <h3 className='font-semibold text-lg'>Chat History</h3>
+              <h3 className='font-semibold text-1xl md:text-2xl'>Chat History</h3>
               <p className='text-sm text-gray-600'>Access previous conversations anytime with our intuitive chat history feature.</p>
             </div>
             <div className='p-6 bg-white shadow-md rounded-xl'>
-              <h3 className='font-semibold text-lg'>Auto Scroll Messaging</h3>
+              <h3 className='font-semibold text-1xl md:text-2xl'>Auto Scroll Messaging</h3>
               <p className='text-sm text-gray-600'>New messages automatically scroll into view, ensuring a smooth chat experience.</p>
             </div>
             <div className='p-6 bg-white shadow-md rounded-xl'>
-              <h3 className='font-semibold text-lg'>Typing Indicator</h3>
+              <h3 className='font-semibold text-1xl md:text-2xl'>Typing Indicator</h3>
               <p className='text-sm text-gray-600'>See when others are typing in real-time for more natural conversations.</p>
             </div>
             <div className='p-6 bg-white shadow-md rounded-xl'>
-              <h3 className='font-semibold text-lg'>Multiple Chat Rooms</h3>
+              <h3 className='font-semibold text-1xl md:text-2xl'>Multiple Chat Rooms</h3>
               <p className='text-sm text-gray-600'>Join different chat rooms to engage in various topics with unique participants.</p>
             </div>
             <div className='p-6 bg-white shadow-md rounded-xl'>
-              <h3 className='font-semibold text-lg'>Message Editing</h3>
+              <h3 className='font-semibold text-1xl md:text-2xl'>Message Editing</h3>
               <p className='text-sm text-gray-600'>Edit sent messages to correct typos or clarify content.</p>
             </div>
             <div className='p-6 bg-white shadow-md rounded-xl'>
-              <h3 className='font-semibold text-lg'>Clear Chat</h3>
+              <h3 className='font-semibold text-1xl md:text-2xl'>Clear Chat</h3>
               <p className='text-sm text-gray-600'>Easily clear chats for a fresh conversation without losing access to chat history.</p>
             </div>
           </div>
