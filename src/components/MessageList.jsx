@@ -38,7 +38,7 @@ export default function MessageList({ roomId }) {
         <div
           key={message.id}
           className={`flex flex-col ${
-            message.userId === currentUser?.uid ? 'items-end' : 'items-start'
+            message.userId === currentUser?.uid ? 'items-start' : 'items-end'
           }`}
         >
           <div
