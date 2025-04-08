@@ -4,7 +4,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear(); // Define the current year
 
   return (
-    <footer className='bg-blue-400 text-white text-center py-4 mt-10'>
+    <footer className='bg-blue-400 text-white text-center py-4 m-0'>
       <p>&copy; {currentYear} Chat Simulation App. All rights reserved.</p>
     </footer>
   )

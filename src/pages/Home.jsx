@@ -7,22 +7,40 @@ const Home = () => {
   return (
     <>
       <NavBar />
-      <div className='pt-20 text-gray-800 '>
+      <div className='pt-20 text-gray-800 bg-blue-950'>
         {/* Hero Section */}
-        <div className='hero bg-gradient-to-r  from-blue-500 to-indigo-600 text-white min-h-screen px-10 flex items-center justify-center'>
-          <div className='hero-content px-10 flex-col lg:flex-row-reverse text-center lg:text-left'>
-            <img
-              src='https://res.cloudinary.com/de5sm2jjl/image/upload/v1743588883/7563799_b5fyfl.jpg'
-              className='max-w-sm rounded-lg shadow-2xl' />
-            <div>
-              <h1 className='text-2xl md:text-5xl px-10 font-extrabold'>Seamless Chat Experience</h1>
-              <p className='py-6 text-1xl md:text-2xl px-10'>
-                Engage in real-time conversations with auto-scrolling, typing indicators, multiple chat rooms, and a customizable user interface. Experience fluid messaging with message editing, clear chat options, and chat history storage.
-              </p>
-              <Link to='/login' className='px-6 py-3 bg-white text-blue-600 font-semibold rounded-lg shadow-md hover:bg-blue-100 transition-all duration-300'>Start Chatting</Link>
-            </div>
-          </div>
-        </div>
+        <div className='hero bg-gradient-to-r from-blue-500 to-indigo-600 text-white min-h-screen px-5 md:px-10 flex items-center justify-center'>
+  <div className='hero-content flex flex-col lg:flex-row-reverse text-center lg:text-left w-full'>
+    <img
+      src='https://res.cloudinary.com/de5sm2jjl/image/upload/v1743588883/7563799_b5fyfl.jpg'
+      className='max-w-full md:max-w-sm rounded-lg shadow-2xl order-2 lg:order-none mb-5 lg:mb-0'
+    />
+    <div className='w-full'>
+      <h1 className='text-2xl md:text-5xl px-0 md:px-10 font-extrabold mb-4'>Seamless Chat Experience</h1>
+      <p className='py-3 md:py-6 text-lg md:text-2xl px-0 md:px-10'>
+        Engage in real-time conversations with auto-scrolling, typing indicators, multiple chat rooms, and a customizable user interface. Experience fluid messaging with message editing, clear chat options, and chat history storage.
+      </p>
+      <div className='flex  md:flex-row justify-center gap-3 mt-4'>
+        <button className='w-full  md:w-auto'>
+          <Link
+            to='/login'
+            className='block px-8 py-2 bg-white text-blue-600 font-semibold rounded-lg shadow-md hover:bg-blue-100 transition-all duration-300'
+          >
+            Start Chatting
+          </Link>
+        </button>
+        <button className='w-full md:w-auto'>
+          <a
+            href='#faq'
+            className='block px-8 py-2 bg-blue-900 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 transition-all duration-300'
+          >
+            Learn More
+          </a>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
 
         {/* Features Section */}
         <section className='p-10 bg-cover bg-center' style={{ backgroundImage: "url('https://res.cloudinary.com/de5sm2jjl/image/upload/v1743588870/9731562_ho195c.jpg')" }}>
